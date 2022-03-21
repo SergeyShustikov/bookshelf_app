@@ -2,8 +2,8 @@ import 'package:bookshelf_app/routes/bookshelf_page/bookshelf_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../interactors/login/login_page_bloc.dart';
-import '../../interactors/login/login_page_state_event.dart';
+import '../../blocs/login/login_page_bloc.dart';
+import '../../blocs/login/login_page_state_event.dart';
 import '../../utils/constants.dart';
 import '../../utils/scaffold_snackbar.dart';
 
