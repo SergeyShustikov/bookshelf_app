@@ -36,9 +36,8 @@ dependencies:
   retrofit: '>=3.0.0 <4.0.0'
   freezed_annotation:
   cached_network_image: ^3.2.0
-  shared_preferences: ^2.0.13
+  shared_preferences: ^2.0.4
   flutter_bloc: ^8.0.1
-  readmore: ^2.1.0
   material_floating_search_bar: ^0.3.7
 dev_dependencies:
   flutter_test:

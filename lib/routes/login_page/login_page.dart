@@ -53,197 +53,200 @@ class _LoginPageState extends State<LoginPage> {
         bloc: bloc,
         builder: (BuildContext context, state) {
           return Center(
-            child: SizedBox(
-              width: useMobileLayout ? null : MediaQuery.of(context).size.width * 3 / 5,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const FlutterLogo(
-                    size: 100,
-                  ),
-                  const SizedBox(height: defaultPadding),
-                  Text(
-                    "BOOKSHELF APP",
-                    style: Theme.of(context).textTheme.headlineLarge,
-                  ),
-                  IntrinsicHeight(
-                    child: Padding(
-                      padding: const EdgeInsets.all(defaultPadding),
-                      child: Card(
-                        color: Colors.white,
-                        elevation: 8,
-                        child: Padding(
-                          padding: const EdgeInsets.all(defaultPadding),
-                          child: Column(
-                            children: [
-                              Form(
-                                key: _formKey,
-                                child: Table(
-                                  // ignore: prefer_const_literals_to_create_immutables
-                                  columnWidths: {
-                                    0: const IntrinsicColumnWidth(),
-                                    1: const FlexColumnWidth(),
-                                  },
-                                  children: [
-                                    TableRow(
-                                      children: [
-                                        TableCell(
-                                          verticalAlignment: TableCellVerticalAlignment.middle,
-                                          child: TextField(
-                                            controller: TextEditingController(text: "Username"),
-                                            textAlign: TextAlign.center,
-                                            textAlignVertical: TextAlignVertical.top,
-                                            enabled: false,
-                                            decoration: const InputDecoration(
-                                              border: InputBorder.none,
-                                              focusedBorder: InputBorder.none,
-                                              enabledBorder: InputBorder.none,
-                                              errorBorder: InputBorder.none,
-                                              disabledBorder: InputBorder.none,
-                                            ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(left: defaultPadding, top: defaultPadding),
-                                          child: SizedBox(
-                                            height: 72,
-                                            child: TextFormField(
-                                              controller: usernameController,
-                                              enableSuggestions: false,
-                                              autocorrect: false,
-                                              autovalidateMode: AutovalidateMode.onUserInteraction,
-                                              validator: (text) {
-                                                if (text != null && text.isEmpty) {
-                                                  return r"Username can't be blank";
-                                                }
-                                                return null;
-                                              },
-                                              decoration: InputDecoration(
-                                                border: OutlineInputBorder(
-                                                  borderRadius: BorderRadius.circular(10.0),
-                                                ),
-                                                filled: true,
-                                                hintStyle: TextStyle(color: Colors.grey[500]),
-                                                fillColor: Colors.white70,
-                                                errorStyle: DefaultTextStyle.of(context).style.copyWith(color: Colors.red, fontSize: 10),
-                                                helperStyle: DefaultTextStyle.of(context).style.copyWith(fontSize: 10),
-                                                helperText: " ",
-                                                contentPadding: const EdgeInsets.only(
-                                                  left: defaultPadding / 2,
-                                                  top: defaultPadding * 2,
-                                                ),
-                                              ),
-                                              textAlignVertical: TextAlignVertical.center,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    TableRow(
-                                      children: [
-                                        TableCell(
-                                          verticalAlignment: TableCellVerticalAlignment.top,
-                                          child: TextField(
-                                            controller: TextEditingController(text: "Password"),
-                                            textAlign: TextAlign.center,
-                                            textAlignVertical: TextAlignVertical.center,
-                                            enabled: false,
-                                            decoration: const InputDecoration(
-                                              border: InputBorder.none,
-                                              focusedBorder: InputBorder.none,
-                                              enabledBorder: InputBorder.none,
-                                              errorBorder: InputBorder.none,
-                                              disabledBorder: InputBorder.none,
-                                            ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(left: defaultPadding),
-                                          child: SizedBox(
-                                            height: 72,
-                                            child: TextFormField(
-                                              controller: passwordController,
-                                              obscureText: true,
-                                              enableSuggestions: false,
-                                              autocorrect: false,
-                                              autovalidateMode: AutovalidateMode.onUserInteraction,
-                                              validator: (text) {
-                                                if (text != null && text.isEmpty) {
-                                                  return r"Password can't be blank";
-                                                }
-                                                return null;
-                                              },
-                                              decoration: InputDecoration(
-                                                border: OutlineInputBorder(
-                                                  borderRadius: BorderRadius.circular(10.0),
-                                                ),
-                                                filled: true,
-                                                hintStyle: TextStyle(color: Colors.grey[500]),
-                                                fillColor: Colors.white70,
-                                                errorStyle: DefaultTextStyle.of(context).style.copyWith(color: Colors.red, fontSize: 10, height: 0.4),
-                                                helperStyle: DefaultTextStyle.of(context).style.copyWith(fontSize: 10),
-                                                helperText: " ",
-                                                contentPadding: const EdgeInsets.only(
-                                                  left: defaultPadding / 2,
-                                                  top: defaultPadding * 2,
-                                                ),
-                                              ),
-                                              textAlignVertical: TextAlignVertical.center,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height: 104,
-                                child: state is Loading
-                                    ? const CircularProgressIndicator.adaptive()
-                                    : Column(
+            child: SingleChildScrollView(
+              physics: const ClampingScrollPhysics(),
+              child: SizedBox(
+                width: useMobileLayout ? null : MediaQuery.of(context).size.width * 3 / 5,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const FlutterLogo(
+                      size: 100,
+                    ),
+                    const SizedBox(height: defaultPadding),
+                    Text(
+                      "BOOKSHELF APP",
+                      style: Theme.of(context).textTheme.headlineLarge,
+                    ),
+                    IntrinsicHeight(
+                      child: Padding(
+                        padding: const EdgeInsets.all(defaultPadding),
+                        child: Card(
+                          color: Colors.white,
+                          elevation: 8,
+                          child: Padding(
+                            padding: const EdgeInsets.all(defaultPadding),
+                            child: Column(
+                              children: [
+                                Form(
+                                  key: _formKey,
+                                  child: Table(
+                                    // ignore: prefer_const_literals_to_create_immutables
+                                    columnWidths: {
+                                      0: const IntrinsicColumnWidth(),
+                                      1: const FlexColumnWidth(),
+                                    },
+                                    children: [
+                                      TableRow(
                                         children: [
-                                          Row(
-                                            children: [
-                                              Expanded(
-                                                child: ElevatedButton(
-                                                  style: ElevatedButton.styleFrom(minimumSize: const Size(double.minPositive, 48)),
-                                                  onPressed: () {
-                                                    if (_formKey.currentState?.validate() ?? false) {
-                                                      bloc.add(Login(username: usernameController.text, password: passwordController.text));
-                                                    }
-                                                  },
-                                                  child: const Text("LOGIN"),
-                                                ),
+                                          TableCell(
+                                            verticalAlignment: TableCellVerticalAlignment.middle,
+                                            child: TextField(
+                                              controller: TextEditingController(text: "Username"),
+                                              textAlign: TextAlign.center,
+                                              textAlignVertical: TextAlignVertical.top,
+                                              enabled: false,
+                                              decoration: const InputDecoration(
+                                                border: InputBorder.none,
+                                                focusedBorder: InputBorder.none,
+                                                enabledBorder: InputBorder.none,
+                                                errorBorder: InputBorder.none,
+                                                disabledBorder: InputBorder.none,
                                               ),
-                                            ],
+                                            ),
                                           ),
-                                          const SizedBox(height: defaultPadding / 2),
-                                          Row(
-                                            children: [
-                                              Expanded(
-                                                child: ElevatedButton(
-                                                  style: ElevatedButton.styleFrom(minimumSize: const Size(double.minPositive, 48)),
-                                                  onPressed: () {
-                                                    Navigator.of(context).push(MaterialPageRoute(
-                                                      builder: (context) => const RegistrationPage(),
-                                                    ));
-                                                  },
-                                                  child: const Text("REGISTER"),
+                                          Padding(
+                                            padding: const EdgeInsets.only(left: defaultPadding, top: defaultPadding),
+                                            child: SizedBox(
+                                              height: 72,
+                                              child: TextFormField(
+                                                controller: usernameController,
+                                                enableSuggestions: false,
+                                                autocorrect: false,
+                                                autovalidateMode: AutovalidateMode.onUserInteraction,
+                                                validator: (text) {
+                                                  if (text != null && text.isEmpty) {
+                                                    return r"Username can't be blank";
+                                                  }
+                                                  return null;
+                                                },
+                                                decoration: InputDecoration(
+                                                  border: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(10.0),
+                                                  ),
+                                                  filled: true,
+                                                  hintStyle: TextStyle(color: Colors.grey[500]),
+                                                  fillColor: Colors.white70,
+                                                  errorStyle: DefaultTextStyle.of(context).style.copyWith(color: Colors.red, fontSize: 10),
+                                                  helperStyle: DefaultTextStyle.of(context).style.copyWith(fontSize: 10),
+                                                  helperText: " ",
+                                                  contentPadding: const EdgeInsets.only(
+                                                    left: defaultPadding / 2,
+                                                    top: defaultPadding * 2,
+                                                  ),
                                                 ),
+                                                textAlignVertical: TextAlignVertical.center,
                                               ),
-                                            ],
-                                          )
+                                            ),
+                                          ),
                                         ],
                                       ),
-                              ),
-                            ],
+                                      TableRow(
+                                        children: [
+                                          TableCell(
+                                            verticalAlignment: TableCellVerticalAlignment.top,
+                                            child: TextField(
+                                              controller: TextEditingController(text: "Password"),
+                                              textAlign: TextAlign.center,
+                                              textAlignVertical: TextAlignVertical.center,
+                                              enabled: false,
+                                              decoration: const InputDecoration(
+                                                border: InputBorder.none,
+                                                focusedBorder: InputBorder.none,
+                                                enabledBorder: InputBorder.none,
+                                                errorBorder: InputBorder.none,
+                                                disabledBorder: InputBorder.none,
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(left: defaultPadding),
+                                            child: SizedBox(
+                                              height: 72,
+                                              child: TextFormField(
+                                                controller: passwordController,
+                                                obscureText: true,
+                                                enableSuggestions: false,
+                                                autocorrect: false,
+                                                autovalidateMode: AutovalidateMode.onUserInteraction,
+                                                validator: (text) {
+                                                  if (text != null && text.isEmpty) {
+                                                    return r"Password can't be blank";
+                                                  }
+                                                  return null;
+                                                },
+                                                decoration: InputDecoration(
+                                                  border: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(10.0),
+                                                  ),
+                                                  filled: true,
+                                                  hintStyle: TextStyle(color: Colors.grey[500]),
+                                                  fillColor: Colors.white70,
+                                                  errorStyle: DefaultTextStyle.of(context).style.copyWith(color: Colors.red, fontSize: 10, height: 0.4),
+                                                  helperStyle: DefaultTextStyle.of(context).style.copyWith(fontSize: 10),
+                                                  helperText: " ",
+                                                  contentPadding: const EdgeInsets.only(
+                                                    left: defaultPadding / 2,
+                                                    top: defaultPadding * 2,
+                                                  ),
+                                                ),
+                                                textAlignVertical: TextAlignVertical.center,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 104,
+                                  child: state is Loading
+                                      ? const Center(child: CircularProgressIndicator.adaptive())
+                                      : Column(
+                                          children: [
+                                            Row(
+                                              children: [
+                                                Expanded(
+                                                  child: ElevatedButton(
+                                                    style: ElevatedButton.styleFrom(minimumSize: const Size(double.minPositive, 48)),
+                                                    onPressed: () {
+                                                      if (_formKey.currentState?.validate() ?? false) {
+                                                        bloc.add(Login(username: usernameController.text, password: passwordController.text));
+                                                      }
+                                                    },
+                                                    child: const Text("LOGIN"),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            const SizedBox(height: defaultPadding / 2),
+                                            Row(
+                                              children: [
+                                                Expanded(
+                                                  child: ElevatedButton(
+                                                    style: ElevatedButton.styleFrom(minimumSize: const Size(double.minPositive, 48)),
+                                                    onPressed: () {
+                                                      Navigator.of(context).push(MaterialPageRoute(
+                                                        builder: (context) => const RegistrationPage(),
+                                                      ));
+                                                    },
+                                                    child: const Text("REGISTER"),
+                                                  ),
+                                                ),
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           );
