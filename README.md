@@ -13,6 +13,7 @@ A hometask for Framie (https://www.framey.io/)
  
  For Android :
  - execute `flutter build apk` command to build the app
+ > Note. You need to have certificate file for building release version of app. Contact the author to get it.
 
  For IOS :
  - Open the default Xcode workspace in your project by running open ios/Runner.xcworkspace
