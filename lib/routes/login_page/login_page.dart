@@ -1,5 +1,5 @@
-import 'package:bookshelf_app/interactors/login/login_page_bloc.dart';
-import 'package:bookshelf_app/interactors/login/login_page_state_event.dart';
+import 'package:bookshelf_app/blocs/login/login_page_bloc.dart';
+import 'package:bookshelf_app/blocs/login/login_page_state_event.dart';
 import 'package:bookshelf_app/utils/scaffold_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

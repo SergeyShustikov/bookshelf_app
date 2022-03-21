@@ -1,4 +1,4 @@
-import 'package:bookshelf_app/interactors/bookshelf/bookshelf_bloc.dart';
+import 'package:bookshelf_app/blocs/bookshelf/bookshelf_bloc.dart';
 import 'package:bookshelf_app/routes/book_details_page/book_details.page.dart';
 import 'package:bookshelf_app/routes/splash_screen.dart';
 import 'package:bookshelf_app/storage/token_store.dart';
@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
-import '../../interactors/bookshelf/bookshelf_state_event.dart';
+import '../../blocs/bookshelf/bookshelf_state_event.dart';
 
 class BookshelfPage extends StatefulWidget {
   const BookshelfPage({Key? key}) : super(key: key);

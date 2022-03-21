@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:bookshelf_app/interactors/login/login_page_state_event.dart';
+import 'package:bookshelf_app/blocs/login/login_page_state_event.dart';
 import 'package:bookshelf_app/models/request/login_request.dart';
 import 'package:bookshelf_app/models/request/register_request.dart';
 import 'package:bookshelf_app/models/response/register_response.dart';
